@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-	<div>
-		<span>First Name: <input id="firstName" type="text">
-		</span>
-		<br>
-		<span>Last Name: <input id="lastName" type="text">
-		</span>
-		<br>
-		<span>Phone Number: <input id="phoneNumber" type="text">
-		</span>
-		<br>
-		<span>Email ID: <input id="emailId" type="text">
-		</span>
-		<br>
-		<button onclick="showalert()">Submit</button>
-	</div>
-    <script type="text/javascript" src="./script.js">
-</script>
+
+    <form id="userForm">
+        <label>First Name: <input type="text" name="First Name" id="firstName"></label><br><br>
+        <label>Last Name: <input type="text" name="Last Name" id="lastName"></label><br><br>
+        <label>Phone Number: <input type="text" name="Phone Number" id="phoneNumber"></label><br><br>
+        <label>Email ID: <input type="text" name="Email ID" id="emailId"></label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("userForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents actual form submission
+
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let phoneNumber = document.getElementById("phoneNumber").value;
+            let emailId = document.getElementById("emailId").value;
+
+            let output = `First Name: ${firstName} Last Name: ${lastName} Phone Number: ${phoneNumber} Email ID: ${emailId}`;
+            alert(output);
+        });
+    </script>
 
 </body>
-
 </html>
